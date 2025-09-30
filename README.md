@@ -8,8 +8,8 @@
 ## Plugin ID
 
 ```text
-santhosh-tekuri/picker.nvim
-https://github.com/santhosh-tekuri/picker.nvim
+santhosh-tekuri/quickfix.nvim
+https://github.com/santhosh-tekuri/quickfix.nvim
 ```
 
 ## Sample Configuration
