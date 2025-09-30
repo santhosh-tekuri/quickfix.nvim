@@ -1,3 +1,15 @@
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "Tweak QuickFix Options",
+    pattern = "qf",
+    group = vim.api.nvim_create_augroup("QFOptions", {}),
+    callback = function()
+        vim.opt.number = false
+        vim.opt.relativenumber = false
+        vim.opt.signcolumn = "no"
+        vim.keymap.set('n', 'q', ':q<cr>', { buffer = 0 })
+    end
+})
+
 local ns = vim.api.nvim_create_namespace("qflist")
 
 vim.api.nvim_set_hl(0, "qfMatch", { link = "Removed", default = true })
