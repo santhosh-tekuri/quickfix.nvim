@@ -3,7 +3,6 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
     group = vim.api.nvim_create_augroup("QFOptions", {}),
     callback = function()
-        vim.opt.number = false
         vim.opt.relativenumber = false
         vim.opt.signcolumn = "no"
         vim.keymap.set('n', 'q', ':q<cr>', { buffer = 0 })
