@@ -12,7 +12,7 @@ santhosh-tekuri/quickfix.nvim
 https://github.com/santhosh-tekuri/quickfix.nvim
 ```
 
-## Sample Configuration
+## Configuration
 
 there is no `setup` function
 
