@@ -5,11 +5,13 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function(ctx)
         local win = vim.fn.win_findbuf(ctx.buf)[1]
         vim.schedule(function()
-            vim.api.nvim_win_call(win, function()
-                vim.wo.number = true
-                vim.wo.relativenumber = false
-                vim.wo.signcolumn = "no"
-            end)
+            if vim.api.nvim_win_is_valid(win) then
+                vim.api.nvim_win_call(win, function()
+                    vim.wo.number = true
+                    vim.wo.relativenumber = false
+                    vim.wo.signcolumn = "no"
+                end)
+            end
         end)
         vim.keymap.set('n', 'o', '<cr>:cclose<cr>', { buffer = 0 })
         vim.keymap.set('n', 'q', ':q<cr>', { buffer = 0 })
