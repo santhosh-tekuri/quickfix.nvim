@@ -2,9 +2,15 @@ vim.api.nvim_create_autocmd("FileType", {
     desc = "Tweak QuickFix Options",
     pattern = "qf",
     group = vim.api.nvim_create_augroup("QFOptions", {}),
-    callback = function()
-        vim.opt.relativenumber = false
-        vim.opt.signcolumn = "no"
+    callback = function(ctx)
+        local win = vim.fn.win_findbuf(ctx.buf)[1]
+        vim.schedule(function()
+            vim.api.nvim_win_call(win, function()
+                vim.wo.number = true
+                vim.wo.relativenumber = false
+                vim.wo.signcolumn = "no"
+            end)
+        end)
         vim.keymap.set('n', 'q', ':q<cr>', { buffer = 0 })
     end
 })
