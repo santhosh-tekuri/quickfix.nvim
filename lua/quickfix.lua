@@ -11,6 +11,7 @@ vim.api.nvim_create_autocmd("FileType", {
                 vim.wo.signcolumn = "no"
             end)
         end)
+        vim.keymap.set('n', 'o', '<cr>:cclose<cr>', { buffer = 0 })
         vim.keymap.set('n', 'q', ':q<cr>', { buffer = 0 })
     end
 })
