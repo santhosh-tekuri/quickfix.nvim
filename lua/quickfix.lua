@@ -13,6 +13,13 @@ vim.api.nvim_create_autocmd("FileType", {
         end)
         vim.keymap.set('n', 'o', '<cr>:cclose<cr>', { buffer = 0 })
         vim.keymap.set('n', 'q', ':q<cr>', { buffer = 0 })
+        vim.keymap.set('n', 'dd', function()
+            local items = vim.fn.getqflist()
+            local _, line, col = unpack(vim.fn.getcurpos())
+            table.remove(items, line)
+            vim.fn.setqflist(items, 'u')
+            vim.fn.cursor({ line, col })
+        end, { buffer = 0 })
     end
 })
 
