@@ -22,6 +22,16 @@ vim.api.nvim_create_autocmd("FileType", {
             vim.fn.setqflist(items, 'u')
             vim.fn.cursor({ line, col })
         end, { buffer = 0 })
+        vim.keymap.set('x', 'd', function()
+            local from, to = vim.fn.line("v"), vim.fn.line(".")
+            local items = vim.fn.getqflist()
+            for _ = from, to do
+                table.remove(items, from)
+            end
+            vim.fn.setqflist(items, 'u')
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', false)
+            vim.fn.cursor({ from, 0 })
+        end, { buffer = 0 })
     end
 })
 
