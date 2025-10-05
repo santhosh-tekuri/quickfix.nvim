@@ -2,8 +2,6 @@
 
 - column range is is highlighted in `qfMatch` highlight group
 - supports multiple column ranges. for example in above screenshot, in second items `true` is highlighted twice
-- `q` quits quickfix window
-- relative number, signcolumn turned off
 
 ## Plugin ID
 
@@ -19,3 +17,12 @@ there is no `setup` function
 ```lua
 vim.o.quickfixtextfunc = require("quickfix").quickfixtextfunc
 ```
+
+the following changes are also done:
+
+- `q` quits quickfix window
+- `o` changes current quickfix item and closes quickfix list
+- `d` `x_d` deleted current/selected items from quickfix list
+- relative number, signcolumn turned off
+
+if you dont want the above changes then you can do `vim.cmd("autocmd!  QFTweaks")`

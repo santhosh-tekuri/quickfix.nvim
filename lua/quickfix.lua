@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("FileType", {
-    desc = "Tweak QuickFix Options",
+    desc = "QuickFix Tweaks",
     pattern = "qf",
-    group = vim.api.nvim_create_augroup("QFOptions", {}),
+    group = vim.api.nvim_create_augroup("QFTweaks", {}),
     callback = function(ctx)
         local win = vim.fn.win_findbuf(ctx.buf)[1]
         vim.schedule(function()
