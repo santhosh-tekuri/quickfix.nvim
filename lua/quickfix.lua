@@ -37,7 +37,11 @@ vim.api.nvim_create_autocmd("FileType", {
 
 local ns = vim.api.nvim_create_namespace("qflist")
 
-vim.api.nvim_set_hl(0, "qfMatch", { link = "Removed", default = true })
+local function define_hl()
+    vim.api.nvim_set_hl(0, "qfMatch", { link = "Removed", default = true })
+end
+define_hl()
+vim.api.nvim_create_autocmd("ColorScheme", { callback = define_hl })
 
 local function get_lines(ttt)
     local lines = {}
